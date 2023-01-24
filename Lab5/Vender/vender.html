@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Vender Productos</title>
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+
+    <script>
+
+        window.onload = function () {
+
+            let Datos = [
+                {
+                    id: 1,
+                    nombre: 'Bandas de resistencia',
+                    precio: 359
+                },
+                {
+                    id: 2,
+                    nombre: 'Saco de box',
+                    precio: 1799
+                },
+                {
+                    id: 3,
+                    nombre: 'Rodilleras',
+                    precio: 349
+                },
+            ]
+
+            let $items = document.querySelector('#items');
+            let carrito = [];
+            let total = 0;
+            let $carrito = document.querySelector('#carrito');
+            let $total = document.querySelector('#total');
+
+            function renderProductos () {
+                for (let info of Datos) {
+           
+                    let producto = document.createElement('div');
+                    producto.classList.add('card', 'col-sm-4');
+           
+                    let productoCasilla = document.createElement('div');
+                    productoCasilla.classList.add('card-body');
+                
+                    let productoTitulo = document.createElement('h5');
+                    productoTitulo.classList.add('card-titulo');
+                    productoTitulo.textContent = info['nombre'];
+               
+                    let productoImagen = document.createElement('img');
+                    
+                    let productoPrecio = document.createElement('p');
+                    productoPrecio.classList.add('card-text');
+                    productoPrecio.textContent = info['precio'] + '$';
+             
+                    let productoBoton = document.createElement('button');
+                    productoBoton.classList.add('btn', 'btn-primary');
+                    productoBoton.textContent = '+';
+                    productoBoton.setAttribute('marcador', info['id']);
+                    productoBoton.addEventListener('click', agregarCarrito);
+             
+                    productoCasilla.appendChild(productoImagen);
+                    productoCasilla.appendChild(productoTitulo);
+                    productoCasilla.appendChild(productoPrecio);
+                    productoCasilla.appendChild(productoBoton);
+                    producto.appendChild(productoCasilla);
+                    $items.appendChild(producto);
+                }
+            }
+
+            function agregarCarrito () {
+                carrito.push(this.getAttribute('marcador'))
+                calcularTotal();
+                renderizarCarrito();
+            }
+
+            function renderizarCarrito () {
+                $carrito.textContent = '';
+                let carritoSinDuplicados = [...new Set(carrito)];
+                
+                carritoSinDuplicados.forEach(function (item, indice) {
+                    let miProducto = Datos.filter(function(ProductoDatos) {
+                        return ProductoDatos['id'] == item;
+                    });
+                   
+                    let Unidades = carrito.reduce(function (total, itemId) {
+                        return itemId === item ? total += 1 : total;
+                    }, 0);
+                    
+                    let producto = document.createElement('li');
+                    producto.classList.add('list-group-item', 'text-right', 'mx-2');
+                    producto.textContent = `${Unidades} x ${miProducto[0]['nombre']} - ${miProducto[0]['precio']}`;
+                    
+                    let miBoton = document.createElement('button');
+                    miBoton.classList.add('btn', 'btn-danger', 'mx-5');
+                    miBoton.textContent = 'X';
+                    miBoton.style.marginLeft = '1rem';
+                    miBoton.setAttribute('item', item);
+                    miBoton.addEventListener('click', borrarItemCarrito);
+                    
+                    producto.appendChild(miBoton);
+                    $carrito.appendChild(producto);
+                })
+            }
+
+            function borrarItemCarrito () {
+                console.log()
+                let id = this.getAttribute('item');
+                carrito = carrito.filter(function (carritoId) {
+                    return carritoId !== id;
+                });
+              
+                renderizarCarrito();
+                calcularTotal();
+            }
+
+            function calcularTotal () {
+                total = 0;
+                iva = 0;
+                
+                for (let item of carrito) {
+                    let miProducto = Datos.filter(function(ProductosDatos) {
+                        return ProductosDatos['id'] == item;
+                    });
+                    total = total + miProducto[0]['precio'];
+                }
+                
+                let totalDosDecimales = total.toFixed(2);
+                $total.textContent = totalDosDecimales;
+            }
+            renderProductos();
+        } 
+    </script>
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <main id="items" class="col-sm-8 row"></main>
+            <aside class="col-sm-4">
+                <h2>Carrito de compras</h2>
+                <ul id="carrito" class="list-group"></ul>
+                <hr>
+                <p class="text-right">Total: <span id="total"></span> pesos</p>
+            </aside>
+        </div>
+    </div>
+</body>
+</html>

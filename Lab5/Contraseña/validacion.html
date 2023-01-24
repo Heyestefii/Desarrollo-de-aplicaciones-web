@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Validar password</title>
+</head>
+<body>
+    <div class="formulario">
+        <h2>Iniciar sesión</h2>
+        <form action="#">
+            <input type="text" placeholder="Usuario" required>
+            <input type="password" id="contra" name="contraseña" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" placeholder="Contraseña" required>
+            <input type="submit" value="Enviar">
+        </form>
+    </div>
+    <script src="js.js"></script>
+</body>
+</html> 
