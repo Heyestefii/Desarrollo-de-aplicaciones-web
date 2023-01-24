@@ -1,0 +1,224 @@
+M A T E R I A L E S 
+
+1. Crear 
+
+IF EXISTS (SELECT name FROM sysobjects
+            WHERE name = 'creaMaterial' AND type = 'P')
+    DROP PROCEDURE creaMaterial
+GO
+
+CREATE PROCEDURE creaMaterial
+    @uclave NUMERIC(5,0),
+    @udescripcion VARCHAR(50),
+    @ucosto NUMERIC(8,2),
+    @uimpuesto NUMERIC(6,2)
+AS
+    INSERT INTO Materiales
+    VALUES(@uclave, @udescripcion, @ucosto, @uimpuesto)
+GO
+
+EXECUTE creaMaterial 5000,'Martillos Acme',250,15
+
+2. Modificar
+
+IF EXISTS (SELECT name FROM sysobjects WHERE name = 'modificaMaterial' AND type = 'P')
+    DROP PROCEDURE modificaMaterial
+GO
+
+CREATE PROCEDURE modificaMaterial
+    @uclave NUMERIC(5,0),
+    @udescripcion VARCHAR(50),
+    @ucosto NUMERIC(8,2),
+    @uimpuesto NUMERIC(6,2)
+AS
+    UPDATE Materiales 
+    SET 
+        Descripcion=@udescripcion,
+        Costo=@ucosto,
+    WHERE Clave=@uclave
+GO
+
+EXECUTE modificaMaterial 5000,'Martillos',300,12
+
+3. Eliminar 
+
+IF EXISTS (SELECT name FROM sysobjects WHERE name = 'eliminaMaterial' AND type = 'P')
+    DROP PROCEDURE eliminaMaterial
+GO
+
+CREATE PROCEDURE eliminaMaterial
+    @uclave NUMERIC(5,0)
+AS
+    DELETE FROM Materiales WHERE Clave=@uclave
+GO
+
+EXECUTE eliminaMaterial 5000
+
+4. Seleccionar 
+
+IF EXISTS (SELECT name FROM sysobjects
+            WHERE name = 'queryMaterial' AND type = 'P')
+    DROP PROCEDURE queryMaterial
+GO
+
+CREATE PROCEDURE queryMaterial
+    @udescripcion VARCHAR(50),
+    @ucosto NUMERIC(8,2)
+
+AS
+    SELECT * FROM Materiales 
+    WHERE descripcion LIKE '%'+@udescripcion+'%' AND costo > @ucosto
+GO
+
+EXECUTE queryMaterial 'Lad',20
+
+
+P R O V E E D O R E S
+
+1. Crear 
+
+IF EXISTS (SELECT name FROM sysobjects
+            WHERE name = 'creaProveedor' AND type = 'P')
+   DROP PROCEDURE creaProveedor
+GO
+
+CREATE PROCEDURE creaProveedor
+       @rfc         char(13),
+       @razonsocial varchar(50)
+AS
+       INSERT INTO Proveedores VALUES (@rfc, @razonsocial)
+GO
+
+2. Modificar 
+
+IF EXISTS (SELECT name FROM sysobjects
+            WHERE name = 'modificaProveedor' AND type = 'P')
+   DROP PROCEDURE modificaProveedor
+GO
+
+CREATE PROCEDURE modificaProveedor
+       @rfc         char(13),
+       @razonsocial varchar(50)
+AS
+       UPDATE Proveedores SET RazonSocial = @razonsocial
+        WHERE RFC = @rfc
+GO
+
+3. Eliminar 
+
+IF EXISTS (SELECT name FROM sysobjects
+            WHERE name = 'eliminaProveedor' AND type = 'P')
+   DROP PROCEDURE eliminaProveedor
+GO
+
+CREATE PROCEDURE eliminaProveedor
+       @rfc      char(13)
+AS
+       DELETE FROM Proveedores 
+        WHERE RFC = @rfc
+GO
+
+
+P R O Y E C T O S 
+
+1. Crear 
+
+IF EXISTS (SELECT name FROM sysobjects
+            WHERE name = 'creaProyecto' AND type = 'P')
+   DROP PROCEDURE creaProyecto
+GO
+
+CREATE PROCEDURE creaProyecto
+       @numero       numeric(5),
+       @denominacion varchar(50)
+AS
+       INSERT INTO proyectos VALUES (@numero, @denominacion)
+GO
+
+2. Modificar 
+
+IF EXISTS (SELECT name FROM sysobjects
+            WHERE name = 'modificaProyecto' AND type = 'P')
+   DROP PROCEDURE modificaProyecto
+GO
+
+CREATE PROCEDURE modificaProyecto
+       @numero        numeric(5),
+       @denominacion varchar(50)
+AS
+       UPDATE proyectos SET Denominacion = @denominacion
+        WHERE Numero = @numero
+GO
+
+3. Eliminar 
+
+IF EXISTS (SELECT name FROM sysobjects
+            WHERE name = 'eliminaProyecto' AND type = 'P')
+   DROP PROCEDURE eliminaProyecto
+GO
+
+CREATE PROCEDURE eliminaProyecto
+       @numero        numeric(5)
+AS
+       DELETE FROM proyectos 
+        WHERE Numero = @numero
+GO
+
+
+E N T R E G A N 
+
+1. Crear
+
+IF EXISTS (SELECT name FROM sysobjects
+            WHERE name = 'creaEntregan' AND type = 'P')
+   DROP PROCEDURE creaEntregan
+GO
+
+CREATE PROCEDURE creaEntregan
+       @clave      numeric(5),
+       @rfc        char(13),
+       @numero     numeric(5),
+       @fecha      datetime,
+       @cantidad   numeric (8,2)
+AS
+       INSERT INTO Entregan VALUES (@clave, @rfc, @numero, @fecha,
+                                    @cantidad)
+GO
+
+2. Modificar 
+
+IF EXISTS (SELECT name FROM sysobjects
+            WHERE name = 'modificaEntregan' AND type = 'P')
+   DROP PROCEDURE modificaEntregan
+GO
+
+CREATE PROCEDURE modificaEntregan
+       @clave      numeric(5),
+       @rfc        char(13),
+       @numero     numeric(5),
+       @fecha      datetime,
+       @cantidad   numeric (8,2)
+AS
+       UPDATE Entregan SET Fecha = @fecha, Cantidad = @cantidad
+        WHERE Clave = @clave AND RFC = @rfc AND Numero = @numero
+GO
+
+3. Eliminar 
+
+IF EXISTS (SELECT name FROM sysobjects
+            WHERE name = 'eliminaEntregan' AND type = 'P')
+   DROP PROCEDURE eliminaEntregan
+GO
+
+CREATE PROCEDURE eliminaEntregan
+       @clave      numeric(5),
+       @rfc        char(13),
+       @numero     numeric(5)
+
+AS
+       DELETE FROM Entregan 
+        WHERE Clave = @clave AND RFC = @rfc AND Numero = @numero
+GO
+
+
+

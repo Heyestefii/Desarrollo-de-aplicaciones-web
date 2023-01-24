@@ -1,0 +1,19 @@
+1. ¿Qué hace el primer bloque del código (bloque del IF)? 
+   Comprueba la existencia del stored procedure para borrarlo en caso de que exista. 
+
+2. ¿Para qué sirve la instrucción GO?
+   Sirve para ejecutar todas las instrucciones anteriores.
+
+3. ¿Explica que recibe como parámetro este Procedimiento y qué tabla modifica?
+   Los parámetros que se reciben son : clave, descripción, costo e impuesto. Modifica la tabla de Materiales al ingresar el nuevo registro.
+
+4. EXECUTE queryMaterial 'Lad',20 (Explica en tu reporte qué recibe como parámetro este procedimiento y qué hace.)
+   Recibe como parámetro, una descripción y un costo. 
+   La consulta regresa aquellos registros que cumplan con ambas condiciones. 
+
+5. ¿Qué ventajas tienen el utilizar Stored Procedures en una aplicación cliente-servidor?
+   La principal ventaja es reutilizar código de una manera sencilla y precisa. Gracias al uso de parámetros pueden ser constantemente reutilizados. 
+
+6. ¿Qué ventajas tiene utilizar SP en un proyecto?
+   Facilita la realización de sentencias para las consultas a la base de datos y es más fácil de controlar y localizar.
+
