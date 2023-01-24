@@ -1,0 +1,68 @@
+h1 {
+	font-size: 20px;
+	font-family: Century Gothic;
+	font-weight: bold;
+}
+
+h2 {
+	font-size: 14px;
+	font-family: Century Gothic;
+	font-weight: bold;
+}
+
+header section footer aside nav article hgroup {
+	display: block;
+}
+
+body{
+	color: black;
+	font-size: 20px ;
+	font-family: Century Gothic;
+	text-align:left; 
+}
+
+.group{
+	width: 960px;
+	background: grey;
+	margin: auto;
+} 
+
+.header{
+	display: block;
+	background: #F8EFBA;
+	border: 1px solid;
+	padding: 20px
+}
+
+.menu{
+	background: #9AECDB;
+	padding: 5px 15px;
+	text-align: center;
+}
+
+.menu li{
+	list-style: none;
+	padding: 5px;
+	font-size: 14px;
+	font-family: Century Gothic;
+	font-weight: bold;
+	display: inline-block;
+}
+
+.section{
+	margin: 20px;
+	width: 920px;
+}
+
+.article{
+	background: white;
+	padding: 20px;
+	margin-bottom: 15px;
+}
+
+.footer{
+	clear: both;
+	padding: 20px;
+	background: #CAD3C8;
+	text-align: center;
+}

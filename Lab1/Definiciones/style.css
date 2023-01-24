@@ -1,0 +1,51 @@
+@import url('https://fonts.googleapis.com/css?family=Fjalla+One|Libre+Baskerville|Lobster|Roboto');
+body{
+	color: hsl(197, 33%, 100%);
+	font-size: 20px ;
+	font-family: Century Gothic;
+	text-align:left; 
+	background-image: url("images/fondo6.jpg");
+}
+
+h1{
+	color: hsl(330, 42%, 0%);
+	text-align: center; 
+	font-family: Century Gothic;
+	font-weight: bold ;
+}
+
+table{
+	width: 50% ;
+	margin-left: auto;
+	margin-right: auto;
+	border: 100px black;
+	border-style: solid;
+    border-width: 4px;
+	border-collapse: collapse;
+	text-align: center; ;
+}
+
+th, td{
+	border: 4px black ;
+	border-style: solid;
+    border-width: 4px;
+	padding: 20px 30px; 
+	font-family: Century Gothic, sans-serif ;
+	color: hsl(197, 33%, 100%);
+}
+
+th{
+	font-size: serif ;
+	color: hsl(330, 42%, 0%);
+	background-image: url("images/fondo2.jpg");
+}
+
+.footer{
+	clear: both;
+	padding: 20px;
+	text-align: center;
+}
+
+p{
+	text-align: center;
+}
