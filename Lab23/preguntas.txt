@@ -1,0 +1,15 @@
+¿Qué ventajas tiene la integración de tus aplicaciones web con servicios web desarrollados por terceros?
+
+- Es muy rápido integrar los servicios que ofrecen.
+- La mayoría han sido probados en toda clase de situaciones de estrés.
+- Podemos asegurar que la mayoría tendran respuestas adecuadas a nuestras necesidades.
+- Las grandes empresas dan un mantenimiento seguido a los servicios ofrecidos a través de sus API's.
+
+¿Qué desventajas tiene la integración de tus aplicaciones web con servicios web desarrollados por terceros?
+
+- Las condiciones para poder utilizar sus servicios, cambian constantemente. 
+- Corremos el riesgo de la caída de los servicios externos.
+- En ocasiones al no ser una servicio muy popular, puede que no haya mejoras a este y tengamos que remplazarlo.
+- En algunos países, las leyes juegan un papel muy importante al delegar datos o servicios a terceros.
+
+ 
