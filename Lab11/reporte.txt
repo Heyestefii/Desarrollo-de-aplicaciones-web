@@ -1,0 +1,21 @@
+Laboratorio 11
+Diana Estefanía Ortiz Ledesma 
+A01209403
+1.	¿Qué muestra la instrucción sp_help materiales? 
+Despliega los detalles de todos los datos de las columnas, en este caso de la tabla materiales.
+
+2.	¿Qué efecto tuvo ejecutar el archivo crear.sql? 
+Se crearon todas las tablas al mismo tiempo.
+
+3.	¿Qué utilidad tiene esta manera de ejecutar los comandos de SQL?
+De esta manera evitamos crear un archivo por cada tabla.
+
+4.	¿Qué relación tiene con las tablas de la base de datos?
+Estas contienen todos los datos que se agregan en las tablas.
+
+5.	¿Qué relación tiene el contenido de este archivo (materiales.sql) con el formato en que se encuentran los datos en el archivo materiales.csv?
+Debido a que el archivo .csv tiene ordenado los datos por medio del uso de (,) y saltos de línea, en el .sql separa la información por columnas y registros. 
+
+6.	¿Qué sucedió al ejecutar SELECT*FROM Materiales? 
+Despliega todos los registros del csv, que ahora se encuentran descargados en la base de datos.
+
