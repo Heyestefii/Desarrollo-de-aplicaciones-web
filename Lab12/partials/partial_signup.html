@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Sesiones</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="assets/css/style.css">
+  </head>
+  <body class="row m-0 bg-primary justify-content-center align-items-center vh-100">
+    <div class="col-sm-4 bg-white text-center">
+      <h1 class="text-center">Registro</h1>
+      <form action="login.php" method="POST">
+          <label for="user" class="sr-only">Usuario</label>
+          <input type="text" name="user" class="form-control" placeholder="Usuario" required autofocus>
+          <br><label for="email" class="sr-only">Correo</label>
+          <input type="text" name="email" class="form-control" placeholder="Correo" required autofocus>
+          <br><label for="password" class="sr-only">Contraseña</label>
+          <input type="password" name="password" class="form-control" placeholder="Contraseña" required>
+          <br><label for="password" class="sr-only">Confirmar contraseña</label>
+          <input type="password" name="password1" class="form-control" placeholder="Confirmar Contraseña" required>
+          <br><input type="submit" class="btn btn-lg btn-primary btn-block" value="Enviar">
+      </form>
+      <br>  
+    </div>
+  </body>
+</html>
