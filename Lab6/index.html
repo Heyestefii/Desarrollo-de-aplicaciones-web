@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="es">
+<link rel="stylesheet" type="text/css" href="css.css">
+	<head>
+		<title>Preguntas</title>
+	</head>
+	<body>
+	<div class="group">
+		<header class="header">
+			<h1>Preguntas y respuestas</h1>
+		</header>
+
+		<nav class="menu">
+			<ul>
+				<li>
+					Bloque 
+				</li>
+				<li>
+					Diana Ortiz 
+				</li>
+				<li>
+					A01209403
+				</li>
+			</ul>
+		</nav>
+
+		<section class="section">
+			<article class="article">
+				<hgroup>
+					<h1>¿Cuáles son las diferencias entre los posibles valores de la propiedad position?</h1>
+				</hgroup>
+				<p>Ele valor relative posiciona un elemento respecto al flujo normal de la página. Absolute, toma como referencia la ventana del navegador o del elemento posicionado. Fixed, toma como referencia la ventana del navegador y no respetan el tener un contenedor padre que esté posicionado. Inherit, hereda el valor para esta propiedad del elemento padre. Initial, toma su valor por defecto. Sticky, toma el valor hasta que se alcanza un umbral de desplazamiento.</p>
+				<a href=""></a>
+			</article>
+
+			<article class="article">
+				<hgroup>
+					<h1>¿Cuáles son los valores estándar para la propiedad visibility?</h1>
+				</hgroup>
+				<p>Se usa para dos efectos, el valor hidden esconde un elemento, pero deja vacío el espacio donde debería de estar. Y el valor collapse esconde filas o columnas de una tabla.</p>
+				<a href=""></a>
+			</article>
+
+			<article class="article">
+				<hgroup>
+					<h1>¿Qué es el zIndex y para qué sirve?</h1>
+				</hgroup>
+				<p> Indica el z-order de un elemento y sus descendientes. Cuando varios elementos se superponen, z-order determina cuales cubren a otros. Un elemento con mayor z-index generalmente cubre a otro menor.</p>
+			</article>
+
+		<h2 align="center">Deberás colocar los animales vertebrados en el rectangulo rosa y los animales invertebrados en el rectangulo morado</h2>
+		</section>
+
+		<input type="checkbox" id="pista"></input>
+		<label for="pista">Pista</label>
+		<div class="pista" align="center"> Los vertebrados son animales que tienen esqueleto óseo, huesos internos o cartilaginoso</div>
+
+		<br>
+
+		<section id="contenedor" ondrop="drop(event)" ondragover="allowDrop(event)">
+  		<div class="animales">
+     		<div class="tipo" id="vertebrado" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+     		<div class="tipo" id="invertebrado" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+ 		</div>
+
+  			<img class="animal" src="imagenes\mariposa.jpg" draggable="true" ondragstart="drag(event)" id="drag1" name="invertebrado"/>
+  			<img class="animal" src="imagenes\perrito.jpg" draggable="true" ondragstart="drag(event)" id="drag2" name="vertebrado"/>
+  			<img class="animal" src="imagenes\escorpion.jpg" draggable="true" ondragstart="drag(event)" id="drag3" name="invertebrado"/>
+  			<img class="animal" src="imagenes\tiburon.jpg" draggable="true" ondragstart="drag(event)" id="drag4" name="vertebrado"/>
+		</section>
+		<div id="resultado">...</div>
+
+		<article class="article">
+				<hgroup>
+					<h1>Bibliografía.</h1>
+				</hgroup>
+				<p> https://developer.mozilla.org/es/docs/Web/CSS/visibility <br> https://es.stackoverflow.com/questions/37930/cual-es-la-diferencia-entre-position-relative-position-absolute-y-position <br> https://developer.mozilla.org/es/docs/Web/CSS/z-index </p>
+			</article>
+		
+		<footer class="footer">
+		</footer>
+	</div>
+	    <script src="js.js"></script>
+	</body>
+</html>
+
+
+
