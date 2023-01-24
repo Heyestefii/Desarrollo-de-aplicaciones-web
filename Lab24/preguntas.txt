@@ -1,0 +1,28 @@
+Comprobando la propiedad de aislamiento en una BD (insertar_clientes.sql)
+
+Pregunta 1. ¿Qué pasa cuando deseas realizar esta consulta? 
+	    Se muestran los registros correctos en ambas sesiones. 
+
+
+Comprobando la propiedad de aislamiento en una BD sin commit (consulta_sin_commit.sql)
+
+Pregunta 1. ¿Qué pasa cuando deseas realizar esta consulta? 
+	    En la primera sesión podemos observar que se muestran correctamente los registros nuevos, mientras que en la segunda sesión sólo podemos observar los anteriores.
+
+	    Explica por qué ocurre dicho evento.
+	    Debido a que no se realizó el commit, la transacción no fue completada. Por lo que el registro no es permanente.
+
+Pregunta 2. ¿Qué ocurrió y por qué?
+	    Ocurre la misma situación. Se hace un ROLLBACK.
+
+
+Manejando Fallas en una Transacción (manejando_fallas_clientes.sql)
+
+Pregunta 1. ¿Para qué sirve el comando @@error?
+	    Se utiliza para encontrar los errores al momento de ejecutar el query anterior u otros.
+
+Pregunta 2. ¿Qué hace la transacción?
+	    El propósito de la transacción es insertar clientes en la tabla correspondiente, pero no es posible debido a la duplicación de llaves primarias. Así que se hace un ROLLBACK.
+
+Pregunta 3. ¿Hubo alguna modificación en la tabla? 
+	    No, la transacción no se realiza correctamente, por lo tanto no se guarda ninguna modificación.
